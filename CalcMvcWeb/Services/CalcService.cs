@@ -58,7 +58,7 @@ namespace CalcMvcWeb.Services
             {
                 result = Convert.ToDouble(x) / y;
             }
-            catch (DivideByZeroException e)
+            catch (DivideByZeroException )
             {
                 return -1;
             }
