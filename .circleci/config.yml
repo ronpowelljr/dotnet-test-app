@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  win: circleci/windows@2.0.0
+  win: circleci/windows@1.0.0
 
 jobs:
   build:
@@ -12,7 +12,7 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - dotnet-packages-v1-{{ checksum "CalcMvcWeb.csproj" }}
+            - dotnet-packages-v1-{{ checksum "CalcMvcWeb/CalcMvcWeb.csproj" }}
       - run:
-          name: "Install Project Dependencies"
+          name: "Install project dependencies"
           command: dotnet.exe restore
