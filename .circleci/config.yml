@@ -12,7 +12,7 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - dotnet-packages-v1-{{ checksum "Calc.csproj" }}
+            - dotnet-packages-v1-{{ checksum "CalcMvcWeb.csproj" }}
       - run:
           name: "Install Project Dependencies"
           command: dotnet.exe restore
