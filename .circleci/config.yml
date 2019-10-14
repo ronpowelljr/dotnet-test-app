@@ -1,14 +1,18 @@
-version: 2
+version: 2.1
+
+orbs:
+  win: circleci/windows@2.0.0
+
 jobs:
   build:
-    working_directory: /temp
-    docker:
-      - image: mcr.microsoft.com/dotnet/core/sdk:3.0
-    environment:
-      DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
-      DOTNET_CLI_TELEMETRY_OPTOUT: 1
+    executor:
+      name: win/vs2019
+      shell: powershell.exe
     steps:
       - checkout
-      - run: dotnet restore
-      - run: dotnet build
-      - run: dotnet test -v d
+      - restore_cache:
+          keys:
+            - dotnet-packages-v1-{{ checksum "Calc.csproj" }}
+      - run:
+          name: "Install Project Dependencies"
+          command: dotnet.exe restore
