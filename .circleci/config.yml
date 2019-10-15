@@ -4,8 +4,11 @@ orbs:
   win: circleci/windows@1.0.0
 
 jobs:
-  test:
-    executor: default
+  build:
+    description: Setup adn run application tests
+    executor:
+      name: win/vs2019
+      shell: powershell.exe
     steps:
       - checkout
       - restore_cache:
@@ -24,8 +27,7 @@ jobs:
       - run:
           name: "Build Application according to some given configuration"
           command: dotnet.exe build --configuration Release
-
 workflows:
-  main:
+  test_and_build:
     jobs:
-      - test
+      - build
