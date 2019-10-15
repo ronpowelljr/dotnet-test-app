@@ -4,8 +4,8 @@ orbs:
   win: circleci/windows@1.0.0
 
 jobs:
-  build:
-    description: Setup adn run application tests
+  test:
+    description: Setup and run application tests
     executor:
       name: win/vs2019
       shell: powershell.exe
@@ -24,10 +24,19 @@ jobs:
       - run:
           name: "Run Application Tests"
           command: dotnet.exe test -v d
+  build:
+    description: Build application with Release configuration
+    executor:
+      name: win/vs2019
+      shell: powershell.exe
+    steps:
       - run:
           name: "Build Application according to some given configuration"
           command: dotnet.exe build --configuration Release
 workflows:
   test_and_build:
     jobs:
-      - build
+      - test
+      - build:
+          requires:
+            - test
