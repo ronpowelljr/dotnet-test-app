@@ -26,7 +26,7 @@ jobs:
           command: dotnet.exe test -v n --results-directory:test_coverage --collect:"Code Coverage"
       - run:
           name: "Print Working Directory"
-          command: cd
+          command: pwd
 
   build:
     description: Build application with Release configuration
