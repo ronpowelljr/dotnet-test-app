@@ -24,3 +24,8 @@ jobs:
       - run:
           name: "Build Application according to some given configuration"
           command: dotnet.exe build --configuration Release
+
+workflows:
+  main:
+    jobs:
+      - test
