@@ -23,7 +23,11 @@ jobs:
           key: dotnet-packages-v1-{{ checksum "CalcMvcWeb/CalcMvcWeb.csproj" }}
       - run:
           name: "Run Application Tests"
-          command: dotnet.exe test -v n
+          command: dotnet.exe test -v n --results-directory:test_coverage --collect:"Code Coverage"
+      - run:
+          name: "Print Working Directory"
+          command: cd
+
   build:
     description: Build application with Release configuration
     executor:
