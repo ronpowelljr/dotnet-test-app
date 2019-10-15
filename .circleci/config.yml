@@ -23,7 +23,7 @@ jobs:
           key: dotnet-packages-v1-{{ checksum "CalcMvcWeb/CalcMvcWeb.csproj" }}
       - run:
           name: "Run Application Tests"
-          command: dotnet.exe test -v d
+          command: dotnet.exe test -v n
   build:
     description: Build application with Release configuration
     executor:
