@@ -23,3 +23,6 @@ jobs:
       - run:
           name: "Run Application Tests"
           command: dotnet.exe test -v d
+      - run:
+          name: "Build Application according to some given configuration"
+          command: dotnet.exe build --configuratio Release
