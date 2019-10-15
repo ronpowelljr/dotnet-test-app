@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CalcMvcWeb.Services
+namespace SimpleCalc.Services
 {
     public class CalcService : ICalcService
     {

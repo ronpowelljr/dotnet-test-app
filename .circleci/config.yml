@@ -13,14 +13,14 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - dotnet-packages-v1-{{ checksum "CalcMvcWeb/CalcMvcWeb.csproj" }}
+            - dotnet-packages-v1-{{ checksum "SimpleCalc/SimpleCalc.csproj" }}
       - run:
           name: "Install project dependencies"
           command: dotnet.exe restore
       - save_cache:
           paths:
             - C:\Users\circleci\.nuget\packages
-          key: dotnet-packages-v1-{{ checksum "CalcMvcWeb/CalcMvcWeb.csproj" }}
+          key: dotnet-packages-v1-{{ checksum "SimpleCalc/SimpleCalc.csproj" }}
       - run:
           name: "Run Application Tests"
           command: dotnet.exe test -v n --results-directory:test_coverage --collect:"Code Coverage"
@@ -38,14 +38,14 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - dotnet-packages-v1-{{ checksum "CalcMvcWeb/CalcMvcWeb.csproj" }}
+            - dotnet-packages-v1-{{ checksum "SimpleCalc/SimpleCalc.csproj" }}
       - run:
           name: "Install project dependencies"
           command: dotnet.exe restore
       - save_cache:
           paths:
             - C:\Users\circleci\.nuget\packages
-          key: dotnet-packages-v1-{{ checksum "CalcMvcWeb/CalcMvcWeb.csproj" }}
+          key: dotnet-packages-v1-{{ checksum "SimpleCalc/SimpleCalc.csproj" }}
       - run:
           name: "Build Application according to some given configuration"
           command: dotnet.exe build --configuration Release
